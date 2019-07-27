@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Mini Project</string>
+    <string name="thename">Name:</string>
+    <string name="estName">Establishment Name:</string>
+    <string name="estType">Type of Establishment:</string>
+    <string name="foodType">Food Type:</string>
+    <string name="location">Location:</string>
+    <string name="Coffee">Coffee</string>
+    <string name="Bar">Bar</string>
+    <string name="Restaurant">Restaurant</string>
+    <string name="nextButton">Next</string>
+</resources>
