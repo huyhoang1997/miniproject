@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MyDatabaseHelper extends SQLiteOpenHelper {
@@ -21,15 +21,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
 
     // Tên cơ sở dữ liệu.
-    private static final String DATABASE_NAME = "Establishment";
+    private static final String DATABASE_NAME = "The Establishment";
 
 
     // Tên bảng: Note.
     private static final String TABLE_EST = "Establishment";
 
     private static final String COLUMN_EST_ID ="Est_Id";
-    private static final String COLUMN_EST_NAME ="Est_Title";
-    private static final String COLUMN_EST_TYPE = "Est_Content";
+    private static final String COLUMN_EST_NAME ="Est_Name";
+    private static final String COLUMN_EST_TYPE = "Est_Type";
+    private static final String COLUMN_FOOD_TYPE = "Est_Food";
+    private static final String COLUMN_LOCATION = "Est_Location";
 
     public MyDatabaseHelper(Context context)  {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,12 +41,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         Log.i(TAG, "MyDatabaseHelper.onCreate ... ");
-
         String script = "CREATE TABLE " + TABLE_EST + "("
                 + COLUMN_EST_ID + " INTEGER PRIMARY KEY," + COLUMN_EST_NAME + " TEXT,"
-                + COLUMN_EST_TYPE + " TEXT" + ")";
+                + COLUMN_EST_TYPE + " TEXT,"  + COLUMN_FOOD_TYPE + " TEXT," + COLUMN_LOCATION + " TEXT" +")";
 
         db.execSQL(script);
     }
@@ -61,15 +61,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addEst(String name, String type) {
+    public void addEst(Establishment est) {
 
-        Log.i(TAG, "MyDatabaseHelper.addEst ... " + name);
+        Log.i(TAG, "MyDatabaseHelper.addEst ... " + est.getEstName());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_EST_NAME, name);
-        values.put(COLUMN_EST_TYPE, type);
+        values.put(COLUMN_EST_NAME, est.getEstName());
+        values.put(COLUMN_EST_TYPE, est.getEstType());
+        values.put(COLUMN_FOOD_TYPE, est.getFoodType());
+        values.put(COLUMN_LOCATION, est.getLocation());
 
 
 
@@ -93,4 +95,57 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         return count;
     }
+    public List<Establishment> getAllData(){
+        List<Establishment> estList = new ArrayList<Establishment>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Establishment "  ,null);
+        if (cursor.moveToFirst()) {
+            do {
+                Establishment est = new Establishment();
+                est.setEstName(cursor.getString(1));
+                est.setEstType(cursor.getString(2));
+                est.setFoodType(cursor.getString(3));
+                est.setLocation(cursor.getString(4));
+
+                estList.add(est);
+            } while (cursor.moveToNext());
+        }
+        return estList;
+
+    }
+
+    public List<Establishment> searchData(String n){
+
+        List<Establishment> estList = new ArrayList<Establishment>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Establishment WHERE Est_name =" + "\"" + n + "\""  ,null);
+        if (cursor.moveToFirst()) {
+            do {
+                Establishment est = new Establishment();
+                est.setEstName(cursor.getString(1));
+                est.setEstType(cursor.getString(2));
+                est.setFoodType(cursor.getString(3));
+                est.setLocation(cursor.getString(4));
+
+                estList.add(est);
+            } while (cursor.moveToNext());
+        }
+
+        return estList;
+
+    }
+    public int returnSearchResultCount(String n){
+        int count = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Establishment WHERE Est_name =" + "\"" + n + "\""  ,null);
+        if (cursor.moveToFirst()) {
+            do {
+                count++;
+            } while (cursor.moveToNext());
+        }
+
+        return count;
+    }
+
+
 }
