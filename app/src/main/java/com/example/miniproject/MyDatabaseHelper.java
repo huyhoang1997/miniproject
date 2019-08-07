@@ -205,7 +205,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    public String estID(String name){
+    public int estID(String name){
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM Establishment WHERE Est_Name =" + "\"" + name + "\""  ,null);
@@ -214,7 +214,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             cursor.moveToFirst();
         }
 
-        return cursor.getString(0);
+        return cursor.getInt(0);
 
     }
 
@@ -238,6 +238,28 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
     }
+    public List<Review> showAllReview(String estName){
+//        int id = this.estID(estName);
+        List<Review> r = new ArrayList<Review>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM reviewEst WHERE R_EstID =" + "\""+ this.estID(estName)+ "\""  ,null);
+        if (cursor.moveToFirst()) {
+            do {
+                Review review = new Review();
+                review.setDate(cursor.getString(1));
+                review.setMealType(cursor.getString(2));
+                review.setMealCost(cursor.getInt(3));
+                review.setOverallRating(cursor.getFloat(4));
+                review.setServiceRating(cursor.getFloat(5));
+                review.setAtmosphereRating(cursor.getFloat(6));
+                review.setFoodRating(cursor.getFloat(7));
+                review.setComment(cursor.getString(8));
+                r.add(review);
+            } while (cursor.moveToNext());
+        }
+        return r;
+    }
+
 
 
 }

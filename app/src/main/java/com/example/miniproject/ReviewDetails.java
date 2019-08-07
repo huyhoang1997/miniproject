@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
+import android.os.*;
 import java.util.Calendar;
 
 public class ReviewDetails extends AppCompatActivity {
@@ -138,6 +139,7 @@ public class ReviewDetails extends AppCompatActivity {
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+
                 }
                 if(checkBox2.isChecked()){
                     String date = dateResult.getText().toString();
@@ -157,6 +159,7 @@ public class ReviewDetails extends AppCompatActivity {
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+
                 }
                 if(checkBox3.isChecked()){
                     String date = dateResult.getText().toString();
@@ -176,8 +179,19 @@ public class ReviewDetails extends AppCompatActivity {
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+
                 }
+
             }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent i = new Intent(ReviewDetails.this, SearchActivity.class);
+                startActivity(i);
+                finish();
+            }
+        }, 1000);
     }
 
     private void handleDateTextView() {

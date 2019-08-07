@@ -41,21 +41,21 @@ public class CustomListAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = layoutInflater.inflate(R.layout.custom_item, null);
             holder = new ViewHolder();
-            holder.flagView = (ImageView) convertView.findViewById(R.id.showImage);
-            holder.countryNameView = (TextView) convertView.findViewById(R.id.est_name);
-            holder.populationView = (TextView) convertView.findViewById(R.id.est_description);
+            holder.estImage = (ImageView) convertView.findViewById(R.id.showImage);
+            holder.estNAME = (TextView) convertView.findViewById(R.id.est_name);
+            holder.estDes = (TextView) convertView.findViewById(R.id.est_description);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         Establishment est = this.est.get(position);
-        holder.countryNameView.setText(est.getEstName());
-        holder.populationView.setText( "Type: " + est.getEstType() +"\n" +"Food: " + est.getFoodType() + "\n" +"Location: "+ est.getLocation());
+        holder.estNAME.setText(est.getEstName());
+        holder.estDes.setText( "Type: " + est.getEstType() +"\n" +"Food: " + est.getFoodType() + "\n" +"Location: "+ est.getLocation());
 
         int imageId = this.getMipmapResIdByName(est.getImageURL());
 
-        holder.flagView.setImageResource(imageId);
+        holder.estImage.setImageResource(imageId);
 
         return convertView;
     }
@@ -66,8 +66,8 @@ public class CustomListAdapter extends BaseAdapter {
         return resID;
     }
     static class ViewHolder {
-        ImageView flagView;
-        TextView countryNameView;
-        TextView populationView;
+        ImageView estImage;
+        TextView estNAME;
+        TextView estDes;
     }
 }

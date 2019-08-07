@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button addBtn = (Button) findViewById(R.id.buttonAdd);
         Button searchBtn = (Button) findViewById(R.id.buttonSearch);
-        Button reviewBtn = (Button) findViewById(R.id.buttonReview);
         addBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 handleAddButton();
@@ -28,18 +27,11 @@ public class MainActivity extends AppCompatActivity {
                 handleSearchButton();
             }
         });
-        reviewBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                handleReviewButton();
-            }
-        });
+
 
     }
 
-    private void handleReviewButton() {
-        Intent i = new Intent(this, ReviewDetails.class);
-        startActivity(i);
-    }
+
 
     private void handleAddButton() {
         Intent i = new Intent(this,AddEst.class);

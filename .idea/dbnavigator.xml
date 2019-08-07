@@ -25,10 +25,10 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0">
-        <schema name="main" object-types="view, table" />
+        <schema name="main" object-types="column, dataset trigger, constraint, index, table, view" />
       </connection>
       <connection connection-id="e0ead273-559e-4ac5-a967-9569a0e70711">
-        <schema name="main" object-types="index, view, table, dataset trigger, constraint, column" />
+        <schema name="main" object-types="column, dataset trigger, constraint, index, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -42,7 +42,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="e0ead273-559e-4ac5-a967-9569a0e70711" object-ref="schemas/main/tables/Establishment" />
+      <object connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" object-ref="schemas/main/tables/reviewEst" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
@@ -51,6 +51,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" dataset="main.reviewEst" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" dataset="main.Establishment" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="e0ead273-559e-4ac5-a967-9569a0e70711" dataset="main.Establishment" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
