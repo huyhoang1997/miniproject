@@ -24,36 +24,34 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="d37d1c10-c66a-4b58-89af-ebd4e6dd1dd0">
-        <schema name="main" object-types="table, view" />
+      <connection connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0">
+        <schema name="main" object-types="view, table" />
       </connection>
-      <connection connection-id="effdcb3c-6777-4cf5-b5ea-4205542cd18b">
-        <schema name="main" object-types="table, view" />
+      <connection connection-id="e0ead273-559e-4ac5-a967-9569a0e70711">
+        <schema name="main" object-types="index, view, table, dataset trigger, constraint, column" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="d37d1c10-c66a-4b58-89af-ebd4e6dd1dd0">
-      <console name="Connection" type="STANDARD" schema="main" session="Main" />
+    <connection id="180c1df9-47ac-417e-a55a-848ff9cbe0f0">
+      <console name="Connection 3" type="STANDARD" schema="main" session="Main" />
     </connection>
-    <connection id="effdcb3c-6777-4cf5-b5ea-4205542cd18b">
-      <console name="Connection 1" type="STANDARD" schema="main" session="Main" />
+    <connection id="e0ead273-559e-4ac5-a967-9569a0e70711">
+      <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="e0ead273-559e-4ac5-a967-9569a0e70711" object-ref="schemas/main/tables/Establishment" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="d37d1c10-c66a-4b58-89af-ebd4e6dd1dd0" />
-    <connection id="effdcb3c-6777-4cf5-b5ea-4205542cd18b" />
+    <connection id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" />
+    <connection id="e0ead273-559e-4ac5-a967-9569a0e70711" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="d37d1c10-c66a-4b58-89af-ebd4e6dd1dd0" dataset="main.Establishment" active-filter-id="5aed88ab-6a48-42f8-b4d6-3d2ca6d10a90">
-      <filter id="5aed88ab-6a48-42f8-b4d6-3d2ca6d10a90" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="Est_Id" operator="=" value="" active="true" />
-      </filter>
-    </filter-actions>
-    <filter-actions connection-id="effdcb3c-6777-4cf5-b5ea-4205542cd18b" dataset="main.Establishment" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" dataset="main.reviewEst" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="e0ead273-559e-4ac5-a967-9569a0e70711" dataset="main.Establishment" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -78,9 +76,9 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="d37d1c10-c66a-4b58-89af-ebd4e6dd1dd0" active="true">
+      <connection id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" active="true">
         <database>
-          <name value="Connection" />
+          <name value="Connection 3" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -93,7 +91,7 @@
           <port value="1234" />
           <database value="database" />
           <files>
-            <file path="D:\db\databases\Establishment" schema="main" />
+            <file path="D:\The Establishment" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -164,9 +162,9 @@
           <object-name-filters />
         </object-filters>
       </connection>
-      <connection id="effdcb3c-6777-4cf5-b5ea-4205542cd18b" active="true">
+      <connection id="e0ead273-559e-4ac5-a967-9569a0e70711" active="true">
         <database>
-          <name value="Connection 1" />
+          <name value="Connection" />
           <description value="" />
           <database-type value="SQLITE" />
           <config-type value="BASIC" />
@@ -179,7 +177,7 @@
           <port value="1234" />
           <database value="database" />
           <files>
-            <file path="D:\db\The Establishment" schema="main" />
+            <file path="D:\The Establishment" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

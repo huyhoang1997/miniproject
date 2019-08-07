@@ -3,9 +3,12 @@ package com.example.miniproject;
 import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -53,23 +56,43 @@ public class SearchActivity extends Activity {
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnCategory.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Establishment item = (Establishment) adapterView.getItemAtPosition(i);
+                String name = item.getEstName();
+                String type = item.getEstType();
+                String imURL = item.getImageURL();
+                String location = item.getLocation();
+                Intent intent = new Intent(SearchActivity.this,EstDetail.class);
+                Bundle extras = new Bundle();
+                extras.putString(EstDetail.TYPE,type);
+                extras.putString(EstDetail.NAME, name);
+                extras.putString(EstDetail.LOCATION,location);
+                extras.putString(EstDetail.IMURL,imURL);
+                intent.putExtras(extras);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void handleSearchingButton() {
-        String estName = txt.getText().toString();
+        String estName = txt.getText().toString().toLowerCase();
+        String item = spnCategory.getSelectedItem().toString();
         MyDatabaseHelper db = new MyDatabaseHelper(this);
-        if(db.searchData(estName).size() == 0){
+        if(db.searchData(estName,item).size() == 0){
             new AlertDialog.Builder(this).setTitle("Details entered")
                     .setMessage( "No information about that establishment"  )
                     .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {}})
                     .show();
-            result.setText("Found" +" " + db.returnSearchResultCount(estName)+" " + "results");
+            result.setText("Found" +" " + db.returnSearchResultCount(estName,item)+" " + "results");
 
         }else{
-            result.setText("Found" +" " + db.returnSearchResultCount(estName)+" " + "results");
-            ArrayAdapter<Establishment> arrayAdapter = new ArrayAdapter<Establishment>(this, android.R.layout.simple_list_item_1 , db.searchData(estName));
-            lv.setAdapter(arrayAdapter);
+            result.setText("Found" +" " + db.returnSearchResultCount(estName,item)+" " + "results");
+            List<Establishment> est = db.searchData(estName,item);
+            lv.setAdapter(new CustomListAdapter(this,est));
 
         }
 

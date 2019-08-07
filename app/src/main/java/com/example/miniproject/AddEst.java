@@ -174,13 +174,12 @@ public class AddEst extends AppCompatActivity {
             String type = checkBox1.getText().toString();
             String foodtype = foodType.getText().toString();
             String location = Location.getText().toString();
-            Establishment est1 = new Establishment(name,type,foodtype,location);
+            String image = estName.getText().toString().replace(" ","_").toLowerCase();
+            Establishment est1 = new Establishment(name,type,foodtype,location,image);
             db.addEst(est1);
             new AlertDialog.Builder(this).setTitle("Details entered")
                     .setMessage( "Saved : " + db.getEstCount()  )
                     .setNeutralButton("Back",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {}})
-                    .setPositiveButton("Save",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {}})
                     .show();
 
@@ -191,14 +190,13 @@ public class AddEst extends AppCompatActivity {
             String type = checkBox2.getText().toString();
             String foodtype = foodType.getText().toString();
             String location = Location.getText().toString();
-            Establishment est2 = new Establishment(name,type,foodtype,location);
+            String image = estName.getText().toString().replace(" ","_").toLowerCase();
+            Establishment est2 = new Establishment(name,type,foodtype,location,image);
             db.addEst(est2);
 
             new AlertDialog.Builder(this).setTitle("Details entered")
                     .setMessage( "Saved : " + db.getEstCount()  )
                     .setNeutralButton("Back",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {}})
-                    .setPositiveButton("Save",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {}})
                     .show();
 
@@ -210,14 +208,13 @@ public class AddEst extends AppCompatActivity {
             String type = checkBox3.getText().toString();
             String foodtype = foodType.getText().toString();
             String location = Location.getText().toString();
-            Establishment est3 = new Establishment(name,type,foodtype,location);
+            String image = estName.getText().toString().replace(" ","_").toLowerCase();
+            Establishment est3 = new Establishment(name,type,foodtype,location,image);
             db.addEst(est3);
 
             new AlertDialog.Builder(this).setTitle("Details entered")
                     .setMessage( "Saved : " + db.getEstCount()  )
                     .setNeutralButton("Back",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {}})
-                    .setPositiveButton("Save",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {}})
                     .show();
 

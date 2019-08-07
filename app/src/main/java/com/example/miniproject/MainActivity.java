@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.SearchView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleReviewButton() {
-        Intent i = new Intent(this,reviewdetails.class);
+        Intent i = new Intent(this, ReviewDetails.class);
         startActivity(i);
     }
 
