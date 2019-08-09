@@ -53,7 +53,7 @@ public class CustomReviewAdapter extends BaseAdapter {
         if(item.getOverallRating() > 3.0){
             String overallrating = String.valueOf(item.getOverallRating());
             holder.overallRating.setText("Overall Rating: "+overallrating);
-            holder.reviewDes.setText( "Comment: " + item.getComment());
+            holder.reviewDes.setText( "Review Date: " +item.getDate()+"\n"+"\n" + "Comment: " + item.getComment());
 
             int imageId = this.getMipmapResIdByName("positive");
 
@@ -64,7 +64,7 @@ public class CustomReviewAdapter extends BaseAdapter {
         if(item.getOverallRating() == 3.0){
             String overallrating = String.valueOf(item.getOverallRating());
             holder.overallRating.setText("Overall Rating: "+overallrating);
-            holder.reviewDes.setText( "Comment: " + item.getComment());
+            holder.reviewDes.setText( "Review Date: " +item.getDate()+"\n"+"\n" + "Comment: " + item.getComment());
 
             int imageId = this.getMipmapResIdByName("neutral");
 
@@ -74,7 +74,7 @@ public class CustomReviewAdapter extends BaseAdapter {
 
             String overallrating = String.valueOf(item.getOverallRating());
             holder.overallRating.setText("Overall Rating: "+overallrating);
-            holder.reviewDes.setText( "Comment: " + item.getComment());
+            holder.reviewDes.setText( "Review Date: " +item.getDate()+"\n"+"\n" + "Comment: " + item.getComment());
 
             int imageId = this.getMipmapResIdByName("negative");
 

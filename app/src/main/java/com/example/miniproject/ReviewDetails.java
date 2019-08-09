@@ -139,6 +139,14 @@ public class ReviewDetails extends AppCompatActivity {
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(ReviewDetails.this, SearchActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    }, 1000);
 
                 }
                 if(checkBox2.isChecked()){
@@ -155,10 +163,18 @@ public class ReviewDetails extends AppCompatActivity {
                     MyDatabaseHelper db = new MyDatabaseHelper(this);
                     db.AddreviewEst(name,date,mealType,MealCost,oveRating,serRating,atmRating,FoodRating,Comment);
                     new AlertDialog.Builder(this).setTitle("Details entered")
-                            .setMessage( "Submitted Review! Thank you for your cooperation :) " + name     )
+                            .setMessage( "Submitted Review! Thank you for your cooperation :) "    )
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(ReviewDetails.this, SearchActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    }, 1000);
 
                 }
                 if(checkBox3.isChecked()){
@@ -179,19 +195,20 @@ public class ReviewDetails extends AppCompatActivity {
                             .setNeutralButton("Back",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {}})
                             .show();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent i = new Intent(ReviewDetails.this, SearchActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    }, 1000);
 
                 }
 
             }
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(ReviewDetails.this, SearchActivity.class);
-                startActivity(i);
-                finish();
-            }
-        }, 1000);
+
     }
 
     private void handleDateTextView() {

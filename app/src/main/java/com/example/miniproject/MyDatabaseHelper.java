@@ -94,7 +94,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         values.put(COLUMN_EST_TYPE, est.getEstType());
         values.put(COLUMN_FOOD_TYPE, est.getFoodType());
         values.put(COLUMN_LOCATION, est.getLocation());
-        values.put(COLUMN_IMAGE,est.getImageURL());
+        values.put(COLUMN_IMAGE, est.getImageURL());
 
 
         db.insert(TABLE_EST, null, values);

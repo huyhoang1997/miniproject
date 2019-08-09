@@ -56,9 +56,25 @@ public class EstDetail extends AppCompatActivity {
             ListView lv = (ListView) findViewById(R.id.resultReview);
             lv.setAdapter(new CustomReviewAdapter(this,review));
         }
+        Button btnLocation = (Button) findViewById(R.id.locationButton);
+        btnLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleLocationButton();
+            }
+        });
 
     }
 
+    private void handleLocationButton() {
+        Bundle extras = getIntent().getExtras();
+        String name = extras.getString(NAME);
+        Bundle estName = new Bundle();
+        estName.putString(Map.ESTNAME,name);
+        Intent i = new Intent(this,Map.class);
+        i.putExtras(estName);
+        startActivity(i);
+    }
 
 
     private void handleReviewButton() {

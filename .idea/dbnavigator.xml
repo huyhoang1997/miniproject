@@ -25,10 +25,10 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0">
-        <schema name="main" object-types="column, dataset trigger, constraint, index, table, view" />
+        <schema name="main" object-types="dataset trigger, column, view, table, constraint, index" />
       </connection>
       <connection connection-id="e0ead273-559e-4ac5-a967-9569a0e70711">
-        <schema name="main" object-types="column, dataset trigger, constraint, index, table" />
+        <schema name="main" object-types="view, table" />
       </connection>
     </loaded-nodes>
   </component>
@@ -41,9 +41,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" object-ref="schemas/main/tables/reviewEst" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="180c1df9-47ac-417e-a55a-848ff9cbe0f0" />

@@ -74,7 +74,7 @@ public class AddEst extends AppCompatActivity {
             }
         });
 
-        Button nextButton = (Button) findViewById(R.id.nextButton);
+        Button nextButton = (Button) findViewById(R.id.confirmButton);
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 handleButtonClick();
@@ -86,12 +86,7 @@ public class AddEst extends AppCompatActivity {
                 handleSaveButton();
             }
         });
-        Button searchButton = (Button) findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                handleSearchButton();
-            }
-        });
+
 
     }
     private void handleButtonClick(){
@@ -222,10 +217,6 @@ public class AddEst extends AppCompatActivity {
 
 
 
-    }
-    private void handleSearchButton(){
-        Intent i = new Intent(this,SearchActivity.class);
-        startActivity(i);
     }
 
 }
